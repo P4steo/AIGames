@@ -1,6 +1,6 @@
 import read_data.readdata as reader
 
-print(reader.route_definitions["waypoints"][3])
+print(reader.route_definitions["waypoints"])
 
 
 
