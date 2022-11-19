@@ -1,7 +1,6 @@
 from numpy import load
 
-data = load('out.npz')
-lst = data.files
+data = load('datasets/VIL-2020-01-01-01_00Z.npz')
+lst = data
 for item in lst:
     print(item)
-    print(data[item])
