@@ -1,0 +1,2 @@
+# AIGames
+Podział pracy: 
