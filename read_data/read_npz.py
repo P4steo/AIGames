@@ -1,6 +1,7 @@
-from numpy import load
+import numpy
 
-data = load('datasets/VIL-2020-01-01-01_00Z.npz')
-lst = data
+data = numpy.load('../npz/plik1.npz')
+lst = data.files
 for item in lst:
     print(item)
+    print(data[item])
