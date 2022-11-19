@@ -1,15 +1,15 @@
 with open('../datasets/route_definitions.csv', 'r') as file:
-    line = file.readline()
+    line = file.readline().strip()
     lenline = len(line)
     data = []
     while lenline > 0:
         line = file.readline()
         lenline = len(line)
         data.append(line)
-    waypoints = [] # added after split elements with waypoints
-    waypoints_id = [] # added after split elements with id
+    waypoints = []  # added after split elements with waypoints
+    waypoints_id = []  # added after split elements with id
     waypoints_og = []  # temporary array
-    id_waypoints = {} # dictionary with id:waypoints
+    id_waypoints = {}  # dictionary with id:waypoints
     licznik = 1
     for i in data:
         licznik += 1
@@ -23,3 +23,9 @@ with open('../datasets/route_definitions.csv', 'r') as file:
 
     for i in id_waypoints:
         print("{i}:{value}".format(i=i, value=id_waypoints[i]))
+with open('waypoints.txt', 'w') as plik:
+    for i in id_waypoints:
+        plik.write("{i}:{value}".format(i=i, value=id_waypoints[i]))
+        plik.write("\n")
+plik.close()
+file.close()
