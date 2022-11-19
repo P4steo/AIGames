@@ -1,5 +1,5 @@
 with open('../datasets/route_definitions.csv', 'r') as file:
-    line = file.readline()
+    line = file.readline().strip()
     lenline = len(line)
     data = []
     while lenline > 0:
@@ -23,8 +23,9 @@ with open('../datasets/route_definitions.csv', 'r') as file:
 
     for i in id_waypoints:
         print("{i}:{value}".format(i=i, value=id_waypoints[i]))
-with open('plik.txt', 'w') as plik:
+with open('waypoints.txt', 'w') as plik:
     for i in id_waypoints:
         plik.write("{i}:{value}".format(i=i, value=id_waypoints[i]))
         plik.write("\n")
 plik.close()
+file.close()
