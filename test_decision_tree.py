@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from sklearn import preprocessing
+from sklearn.metrics import accuracy_score
 
 
 def convert_date_to_int(datetime):
@@ -25,7 +26,10 @@ availability['status'] = label_encoder.fit_transform(availability['status'])
 
 # machine learning
 
-# Decision
-# clf = DecisionTreeClassifier(max_depth=2).fit(observations, availability)
-# print('aa' . format(clf.score(observations, availability)))
+train_ids = int(len(observations) / 3)
 
+# Decision
+clf = DecisionTreeClassifier().fit(observations[:train_ids], availability[:train_ids].status)
+y_pred = clf.predict(observations[train_ids:])
+print(accuracy_score(availability[train_ids:].status, y_pred))
+print(clf.score(observations[train_ids:], availability[train_ids:].status))
