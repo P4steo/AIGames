@@ -9,6 +9,10 @@ def convert_date_to_int(datetime):
     return int(datetime.strftime("%Y%m%d%H%M"))
 
 
+def convert_date_to_vil_file_name(datetime):
+    return int(datetime.strftime("VIL-%Y-%d-%m-%H_00Z.npz"))
+
+
 # read data by pandas
 observations = pd.read_csv("datasets/train_observations.csv")
 availability = pd.read_csv("datasets/train_availability.csv")
@@ -23,6 +27,9 @@ observations['route_id'] = label_encoder.fit_transform(observations['route_id'])
 
 label_encoder = preprocessing.LabelEncoder()
 availability['status'] = label_encoder.fit_transform(availability['status'])
+
+# join observations and status to one table
+joined = pd.merge(observations, availability[["observation_id", "status"]], on="observation_id", how="left")
 
 # machine learning
 
