@@ -6,10 +6,10 @@ with open('../datasets/route_definitions.csv', 'r') as file:
         line = file.readline()
         lenline = len(line)
         data.append(line)
-    waypoints = []
-    waypoints_id = []
+    waypoints = [] # added after split elements with waypoints
+    waypoints_id = [] # added after split elements with id
     waypoints_og = []  # temporary array
-    id_waypoints = {}
+    id_waypoints = {} # dictionary with id:waypoints
     licznik = 1
     for i in data:
         licznik += 1
