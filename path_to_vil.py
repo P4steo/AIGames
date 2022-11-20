@@ -43,4 +43,4 @@ with open('datasets/train_observations.csv', 'r') as file:
         d=int(k.split("-")[1])
         m=int(k.split("-")[2])
         print(choose_vil_path(y,d,m))
-        #
+
