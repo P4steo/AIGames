@@ -15,31 +15,35 @@ def choose_vil_path(y, d, m):
         # fix no data
 
     # generate whole path template "folder/convert_date_to_vil_file_name(datetime)"
-    return "/content/drive/MyDrive/AiGames/"+path
+    return "/content/drive/MyDrive/AiGames/" + path
 
 
-with open('datasets/train_observations.csv', 'r') as file:
-    line = file.readline().strip()
-    data = []
-    while len(line) > 0:
+def path_vil(data_observation):
+    with open(data_observation, 'r') as file:
         line = file.readline().strip()
-        data.append(line)
+        data = []
+        while len(line) > 0:
+            line = file.readline().strip()
+            data.append(line)
 
-    data_splited = []  # temporary array
-    data_temp = []
+        data_splited = []  # temporary array
+        data_temp = []
 
-    data_timestamp = []
-    licznik = 0
-    for i in data:
-        licznik += 1
-        if len(i) > 0:
-            data_splited = i.split(",")
-            data_timestamp.append(data_splited[2])
+        data_timestamp = []
+        licznik = 0
+        for i in data:
+            licznik += 1
+            if len(i) > 0:
+                data_splited = i.split(",")
+                data_timestamp.append(data_splited[2])
 
-    for element in data_timestamp:
-        data_temp.append(element.split(" ")[0])
-    for k in data_temp:
-        y = int(k.split("-")[0])
-        d = int(k.split("-")[1])
-        m = int(k.split("-")[2])
-        print(choose_vil_path(y, d, m))
+        for element in data_timestamp:
+            data_temp.append(element.split(" ")[0])
+        for k in data_temp:
+            y = int(k.split("-")[0])
+            d = int(k.split("-")[1])
+            m = int(k.split("-")[2])
+            print(choose_vil_path(y, d, m))
+
+
+path_vil('datasets/train_observations.csv')
