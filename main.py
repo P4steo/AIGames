@@ -9,34 +9,9 @@ def convert_date_to_int(datetime):
     return int(datetime.strftime("%Y%m%d%H%M"))
 
 
-def convert_date_to_vil_file_name(datetime):
-    return int(datetime.strftime("VIL-%Y-%d-%m-%H_00Z.npz"))
-
-
-def choose_vil_path(datetime):
-    path = ""
-    if datetime.datetime(2020, 1, 1) <= datetime <= datetime.datetime(2020, 3, 31):
-        path = "VIL_merc_2020_01-03"
-    elif datetime.datetime(2020, 4, 1) <= datetime <= datetime.datetime(2020, 5, 31):
-        path = "VIL_merc_2020_04-06"
-    elif datetime.datetime(2020, 7, 1) <= datetime <= datetime.datetime(2020, 12, 31):
-        path = "VIL_merc_2020_07-12"
-    elif datetime.datetime(2021, 1, 1) <= datetime <= datetime.datetime(2021, 5, 31):
-        path = "VIL_merc_2021_01-06"
-    elif datetime.datetime(2021, 7, 1) <= datetime <= datetime.datetime(2021, 12, 31):
-        path = "VIL_merc_2021_07-12"
-    else:
-        path = ""
-        # fix no data
-
-    # generate whole path template "folder/convert_date_to_vil_file_name(datetime)"
-    return path + "/" + convert_date_to_vil_file_name(datetime)
-
-
 # read data by pandas
 observations = pd.read_csv("datasets/train_observations.csv")
 availability = pd.read_csv("datasets/train_availability.csv")
-route_definitions = pd.read_csv("datasets/route_definitions.csv")
 
 # change column with date to int
 observations['timestamp'] = pd.to_datetime(observations['timestamp'])
