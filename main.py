@@ -9,10 +9,6 @@ def convert_date_to_int(datetime):
     return int(datetime.strftime("%H"))
 
 
-def convert_date_to_vil_file_name(datetime):
-    return int(datetime.strftime("VIL-%Y-%d-%m-%H_00Z.npz"))
-
-
 # read data by pandas
 observations = pd.read_csv("datasets/train_observations.csv")
 availability = pd.read_csv("datasets/train_availability.csv")
