@@ -44,7 +44,4 @@ def path_vil(data_observation):
             y = int(k.split("-")[0])
             d = int(k.split("-")[2])
             m = int(k.split("-")[1])
-            print(choose_vil_path(y, d, m))
-
-
-path_vil('datasets/train_observations.csv')
+            return choose_vil_path(y, d, m)
