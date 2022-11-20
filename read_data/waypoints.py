@@ -6,13 +6,13 @@ with open('../datasets/route_definitions.csv', 'r') as file:
         line = file.readline()
         lenline = len(line)
         data.append(line)
+
     waypoints = []  # added after split elements with waypoints
     waypoints_id = []  # added after split elements with id
     waypoints_og = []  # temporary array
     id_waypoints = {}  # dictionary with id:waypoints
-    licznik = 1
+
     for i in data:
-        licznik += 1
         if len(i) > 0:
             waypoints_og = i.split("\"")
             waypoints.append(waypoints_og[1])
