@@ -15,7 +15,7 @@ def choose_vil_path(y, d, m):
         # fix no data
 
     # generate whole path template "folder/convert_date_to_vil_file_name(datetime)"
-    return path
+    return "/content/drive/MyDrive/AiGames/"+path
 
 
 with open('datasets/train_observations.csv', 'r') as file:
