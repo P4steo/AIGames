@@ -1,6 +1,6 @@
 # Ai games
 
-This repository includes our code, which we were doing meanwhile Ai Games Hackathon
+This repository includes our code, which we were doing during the Ai Games Hackathon
 
 ## Authors
 
