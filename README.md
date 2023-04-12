@@ -1,6 +1,7 @@
 # Ai games
 
-This repository includes our code, which we were doing during the Ai Games Hackathon
+This repository includes our code, which we were doing during the Ai Games Hackathon.
+The competition was to create an AI machine capable of predicting flights.
 
 ## Authors
 
